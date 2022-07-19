@@ -3,7 +3,7 @@ const Products = require("../models").product;
 
 const router = new Router();
 
-router.get("/", async (req, res, next) => {
+router.get("/all", async (req, res, next) => {
 	try {
 		const allProducts = await Products.findAll();
 		res.send(allProducts);
@@ -15,8 +15,8 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
 	try {
 		const id = parseInt(req.params.id);
-		const allProducts = await Products.findByPk(id);
-		res.send(allProducts);
+		const specificProduct = await Products.findByPk(id);
+		res.send(specificProduct);
 	} catch (e) {
 		next(e);
 	}
