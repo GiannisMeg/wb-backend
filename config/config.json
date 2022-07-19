@@ -1,0 +1,20 @@
+{
+	"development": {
+		"url": "postgres://zxrzuyxs:JrCrxiBkv4cw1TGjf-tSIVIZrLPWQTY7@tyke.db.elephantsql.com/zxrzuyxs",
+		"dialect": "postgres"
+	},
+	"test": {
+		"username": "root",
+		"password": null,
+		"database": "database_test",
+		"host": "127.0.0.1",
+		"dialect": "mysql"
+	},
+	"production": {
+		"username": "root",
+		"password": null,
+		"database": "database_production",
+		"host": "127.0.0.1",
+		"dialect": "mysql"
+	}
+}
