@@ -50,7 +50,7 @@ router.post("/login", async (req, res, next) => {
         res.status(400).send("Email/password incorrect 2");
       } else if (bcrypt.compareSync(password, logUser.password)) {
         const jwt = toJWT({ userId: logUser.id });
-        res.send({jwt});
+        res.send({jwt, logUser});
       } else {
         res.status(400).send("Email/password incorrect 3");
       }
