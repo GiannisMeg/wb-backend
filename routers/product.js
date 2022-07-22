@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const Products = require("../models").product;
+const Categories = require("../models").category;
 const { Op } = require("sequelize");
 
 const router = new Router();
@@ -13,6 +14,16 @@ router.get("/all", async (req, res, next) => {
   }
 });
 
+router.get("/:id", async (req, res, next) => {
+  try {
+		console.log("asdf");
+    const id = parseInt(req.params.id);
+    const specificProduct = await Products.findByPk(id, {include: [Categories]});
+    res.send(specificProduct);
+  } catch (e) {
+    next(e);
+  }
+});
 
 //----- BACKEND Filtering ----- //
 // RULE with GET request you cant extract properties from the body thats why we use params
