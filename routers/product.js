@@ -4,14 +4,15 @@ const { Op } = require("sequelize");
 
 const router = new Router();
 
-router.get("/", async (req, res, next) => {
-	try {
-		const allProducts = await Products.findAll();
-		res.send(allProducts);
-	} catch (e) {
-		next(e);
-	}
+router.get("/all", async (req, res, next) => {
+  try {
+    const allProducts = await Products.findAll();
+    res.send(allProducts);
+  } catch (e) {
+    next(e);
+  }
 });
+
 
 //----- BACKEND Filtering ----- //
 // RULE with GET request you cant extract properties from the body thats why we use params
