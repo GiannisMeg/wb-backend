@@ -16,7 +16,6 @@ router.get("/all", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
-		console.log("asdf");
     const id = parseInt(req.params.id);
     const specificProduct = await Products.findByPk(id, {include: [Categories]});
     res.send(specificProduct);
